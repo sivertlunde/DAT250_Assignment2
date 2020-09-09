@@ -14,7 +14,7 @@ import no.hvl.dat250.jpa.experiment2.Person;
 import no.hvl.dat250.jpa.experiment2.Pincode;
 
 public class Main {
-    private static final String PERSISTENCE_UNIT_NAME = "todos";
+    private static final String PERSISTENCE_UNIT_NAME = "dat250";
     private static EntityManagerFactory factory;
 
     public static void main(String[] args) {
