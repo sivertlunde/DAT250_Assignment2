@@ -54,7 +54,8 @@ public class UserDAO implements Dao<User> {
         EntityManager em = factory.createEntityManager();
         User user = new User();
         try {
-            Query q = em.createQuery("select u from Usertable u where u.username="+s);
+            Query q = em.createQuery("select u from Usertable u where u.username=:s");
+            q.setParameter("s", s);
             user = (User) q.getSingleResult();
         }finally {
             em.close();
