@@ -14,6 +14,33 @@ public class Main_AssignmentA {
     public static void main(String[] args) {
         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager em = factory.createEntityManager();
+        VoteDAO voteDAO = new VoteDAO();
+        List<Vote> votes = voteDAO.getAll();
+        votes.forEach(v -> System.out.println("Vote with id: " + v.getId()));
+        
+        System.out.println("*********");
+        
+        PollDAO pollDAO = new PollDAO();
+        List<Poll> polls = pollDAO.getAll();
+        polls.forEach(p -> System.out.println("Poll with id: " + p.getId() + " and votes: " + p.getVotes().toString()));
+        
+        Poll toDelete = pollDAO.getById(new Long(52));
+        pollDAO.delete(toDelete);
+        
+        System.out.println("*********");
+        
+        votes = voteDAO.getAll();
+        votes.forEach(v -> System.out.println("Vote with id: " + v.getId()));
+        
+        System.out.println("*********");
+        
+        polls = pollDAO.getAll();
+        polls.forEach(p -> System.out.println("Poll with id: " + p.getId() + " and votes: " + p.getVotes().toString()));
+        
+       
+        
+        //System.out.println(voteDAO.getById(id));
+        
         em.getTransaction().begin();
         
         //Create entities
@@ -41,9 +68,9 @@ public class Main_AssignmentA {
         user.setUsername("newUser");
         user.setPassword("password");
         user.setIsAdmin(false);
-        List<Poll> polls = new ArrayList<>();
-        polls.add(poll);
-        user.setPolls(polls);
+        List<Poll> user_polls = new ArrayList<>();
+        user_polls.add(poll);
+        user.setPolls(user_polls);
         List<Vote> user_votes = new ArrayList<>();
         user_votes.add(vote);
         user.setVotes(user_votes);
