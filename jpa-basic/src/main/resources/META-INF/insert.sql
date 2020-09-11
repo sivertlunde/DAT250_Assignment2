@@ -1,8 +1,3 @@
-insert into Poll(id, title, description, green, red, isPublic, startDate, endDate)
-values (1, "Test poll", "Is this poll in the db?", "Yes", "No", 1, null, null)
-
-INSERT INTO UserTable(1, username, password, isAdmin)
-values ("testUser", "password", 1)
-
-insert into Vote(id, result)
-values (1, 0)
+INSERT INTO Poll(id, title, description, green, red, isPublic) VALUES (10, 'Test poll', 'Is this poll in the db?', 'Yes', 'No', 1);
+INSERT INTO UserTable(id, username, password, isAdmin) VALUES (13, 'testUser', 'password', 1);
+INSERT INTO Vote(id, result) VALUES (15, 0);
